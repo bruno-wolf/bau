@@ -1,0 +1,197 @@
+/*
+ * INDEX 
+ * * import
+ * * variables
+ * * body
+ * * type
+ * * button
+ * * layout
+ * * header
+ * * components
+ * * 
+ * * animations
+ * * other
+ */
+
+/*
+ * import
+ */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&family=Montserrat&display=swap');
+@import 'reset.css';
+
+/*
+ * variables
+ */
+:root {
+	/* colors */
+	--c-gray: #f4f7f6;
+	--c-pastel: #cbdbd7;
+	--c-soft: #91aab4;
+	--c-base: #3e606f;
+	--c-dark: #193441;
+	--c-second: #ffcc33;
+	--c-white: #fff;
+	--c-black: #000;
+	/* fonts */
+	--f-primary: 'Montserrat', sans-serif;
+	--f-secondary: 'Merriweather', serif;
+	/* spacers */
+	--s-half: 10px;
+	--s-base: 20px;
+	--s-double: 40px;
+}
+
+/*
+ * body
+ */
+body {
+	font-family: var(--f-primary);
+	font-size: 10px;
+	line-height: 1.7;
+	font-weight: 400;
+	color: var(--c-base);
+	background: var(--dark-grey);
+	/* touch-action: manipulation; */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: auto;
+}
+
+/*
+ * type
+ */
+h1,
+h2,
+h3 {
+	font-family: var(--f-secondary);
+	margin-bottom: var(--s-half);
+	line-height: 1.3;
+	font-weight: 900;
+	letter-spacing: .5px;
+	color: var(--c-soft);
+}
+h1 {
+	font-size: 3em;
+	line-height: 1.3;
+}
+h2 {
+	font-size: 2.6em;
+}
+h3 {
+	font-size: 2.2em;
+}
+p {
+	font-size: 1.6em;
+	line-height: 1.5;
+	font-weight: 400;
+	color: var(--c-base);
+	margin-bottom: var(--s-base);
+}
+a {
+	color: var(--c-base);
+	text-decoration: none;
+	border-bottom: 1px solid var(--c-pastel);
+}
+a:hover {
+	border-bottom-color: var(--c-dark);
+}
+ul {
+	margin-top: 1em;
+}
+li {
+	font-size: 1.6em;
+	line-height: 1.5;
+	margin-bottom: 1em;
+}
+h1 span,
+h2 span,
+h3 span {
+	color: var(--c-dark);
+}
+p.lead {
+	font-size: 2em;
+}
+
+/*
+ * button
+ */
+button {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	display: inline-block;
+	border: none;
+	cursor: pointer;
+	text-decoration: none;
+	text-transform: uppercase;
+	padding: .5em 1.5em;
+	margin-bottom: 1em;
+	font-size: 1.4em;
+	line-height: 1;
+	letter-spacing: 1px;
+	border-radius: 1em;
+	transition: all 250ms ease-in-out;
+}
+
+.btn {
+	background: var(--c-dark);
+	color: var(--c-white);
+}
+
+/*
+ * layout
+ */
+main {
+	width: 100%;
+	margin-top: 100px;
+}
+
+.container {
+	width: 90%;
+	margin: auto;
+}
+
+/*
+ * components
+ */
+.diagonal {
+	width: 100%;
+	max-width: 360px;
+	height: 100px;
+	background: var(--c-white);
+	overflow: hidden;
+	position: relative;
+}
+
+.diagonal::after {
+	content: '';
+	width: 110%;
+	height: 100px;
+	background: var(--c-white);
+	display: block;
+	transform: rotate(-7.5deg) translateX(-50%);
+	position: absolute;
+	top: -105px;
+	left: 50%;
+	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
+}
+
+/*
+ * header
+ */
+header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	max-width: 400px;
+}
+
+header #logo {
+	width: 80px;
+	height: 28px;
+}
+header #logo svg {
+	width: 80px;
+	height: 28px;
+	fill: var(--c-dark);
+	margin: var(--s-half);
+}

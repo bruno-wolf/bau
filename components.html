@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BAÚ | components</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+
+  <!-- SPRITE SVG 1.0 / 15.06.2020 -->
+  <svg style="display:none">
+    <symbol id="i-arrow" viewBox="0 0 9.06 15.44">
+      <path
+        d="M1.953.246a.847.847 0 0 0-1.194 0L.252.752a.847.847 0 0 0 0 1.194L6.02 7.714.246 13.489a.847.847 0 0 0 0 1.194l.506.506a.847.847 0 0 0 1.194 0l6.87-6.876a.852.852 0 0 0 0-1.2z" />
+    </symbol>
+    <symbol id="i-burguer" viewBox="0 0 30 12.08">
+      <path
+        d="M28.75 12.083H1.25A1.25 1.25 0 0 1 0 10.833a1.25 1.25 0 0 1 1.25-1.25h27.5a1.25 1.25 0 0 1 0 2.5zm0-9.583H1.25A1.25 1.25 0 0 1 0 1.25 1.25 1.25 0 0 1 1.25 0h27.5a1.25 1.25 0 1 1 0 2.5z" />
+    </symbol>
+    <symbol id="i-cross" viewBox="0 0 22.98 22.98">
+      <path
+        d="M20.33 22.098L.885 2.652a1.25 1.25 0 0 1 0-1.767 1.25 1.25 0 0 1 1.767 0L22.098 20.33a1.25 1.25 0 1 1-1.768 1.768z" />
+      <path
+        d="M.884 20.33L20.33.883a1.25 1.25 0 0 1 1.767 0 1.25 1.25 0 0 1 0 1.767L2.652 22.097a1.25 1.25 0 1 1-1.768-1.768z" />
+    </symbol>
+    <symbol id="i-eye" viewBox="0 0 22.22 14.09">
+      <path
+        d="M11.108.422C6.863.422 3.014 2.744.174 6.516a.879.879 0 0 0 0 1.05c2.84 3.777 6.69 6.1 10.934 6.1s8.094-2.322 10.934-6.094a.879.879 0 0 0 0-1.05C19.2 2.744 15.353.422 11.108.422zm.3 11.284a4.673 4.673 0 1 1 4.358-4.358 4.676 4.676 0 0 1-4.353 4.358zm-.141-2.154a2.516 2.516 0 1 1 2.35-2.35 2.512 2.512 0 0 1-2.345 2.35z" />
+    </symbol>
+    <symbol id="i-comments" viewBox="0 0 18.95 18">
+      <path
+        d="M9.474 0C4.25 0 0 3.825 0 8.526a7.883 7.883 0 0 0 1.506 4.612C1.319 15.2.819 16.735.092 17.461A.316.316 0 0 0 .315 18a.3.3 0 0 0 .044 0 16.881 16.881 0 0 0 5.247-1.686 10.281 10.281 0 0 0 3.866.741c5.224 0 9.474-3.825 9.474-8.526S14.7 0 9.474 0z" />
+    </symbol>
+    <symbol id="i-like" viewBox="0 0 20.23 18">
+      <path
+        d="M18.627 1.762A5.44 5.44 0 0 0 14.58 0a5.09 5.09 0 0 0-3.18 1.1 6.5 6.5 0 0 0-1.285 1.342A6.5 6.5 0 0 0 8.831 1.1 5.089 5.089 0 0 0 5.652 0 5.441 5.441 0 0 0 1.6 1.762 6.324 6.324 0 0 0 0 6.08a7.531 7.531 0 0 0 2.007 4.93 42.785 42.785 0 0 0 5.023 4.714c.7.593 1.485 1.266 2.3 1.982a1.188 1.188 0 0 0 1.564 0c.819-.716 1.609-1.389 2.3-1.983a42.769 42.769 0 0 0 5.023-4.714 7.53 7.53 0 0 0 2.006-4.929 6.323 6.323 0 0 0-1.596-4.318z" />
+    </symbol>
+    <symbol id="i-more" viewBox="0 0 4.07 16.28">
+      <path
+        d="M2.035 6.106A2.035 2.035 0 1 0 4.07 8.141a2.035 2.035 0 0 0-2.035-2.035zm0 6.106a2.035 2.035 0 1 0 2.035 2.035 2.035 2.035 0 0 0-2.035-2.036zm0-8.141A2.035 2.035 0 1 0 0 2.035 2.035 2.035 0 0 0 2.035 4.07z" />
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 24.59 22.98">
+      <path
+        d="M11.92 12.807a.628.628 0 0 1 .763-.006l.009.006 1.979 1.535 4.853-3.374v-7.2H5.069v7.23l4.858 3.358zM8.032 6.285h8.529a.63.63 0 0 1 .63.63.63.63 0 0 1-.63.63H8.032a.63.63 0 0 1-.63-.63.63.63 0 0 1 .63-.63zm-.63 3.9a.629.629 0 0 1 .63-.63h8.529a.63.63 0 0 1 .63.63.63.63 0 0 1-.63.63H8.032a.63.63 0 0 1-.629-.623zM3.808 7.254L1.736 8.686l2.072 1.432zM1.259 9.889l.016 11.165 7.607-5.9zm11.037-8.5l-1.611 1.112h3.21zm8.487 5.9v2.8l2.014-1.4zm3.18 15.652l-23.317.032a.63.63 0 0 1-.63-.628L-.003 8.691V8.68a.63.63 0 0 1 .271-.509l3.538-2.445V3.133a.633.633 0 0 1 .63-.63h4.033l3.468-2.4a.632.632 0 0 1 .718 0l3.446 2.4h4.05a.633.633 0 0 1 .63.63v2.624l3.521 2.447a.628.628 0 0 1 .247.35.366.366 0 0 1 .022.125l.019 13.633a.633.633 0 0 1-.628.632zM2.492 21.718l19.595-.027-9.78-7.586zm13.223-6.564l7.619 5.91-.016-11.2z" />
+    </symbol>
+    <symbol id="i-bookmark" viewBox="0 0 13.3 18">
+      <path
+        d="M11.565 0H1.739A1.744 1.744 0 0 0 .004 1.739v15.174a1.088 1.088 0 0 0 .609.978 1.1 1.1 0 0 0 1.152-.13l.022-.022 4.87-4.109 4.87 4.109.022.022a1.109 1.109 0 0 0 .674.239.991.991 0 0 0 .478-.13 1.088 1.088 0 0 0 .609-.978V1.739A1.744 1.744 0 0 0 11.565 0z" />
+    </symbol>
+    <symbol id="i-search" viewBox="0 0 22 22">
+      <path
+        d="M16.145 14.198a8.97 8.97 0 1 0-1.945 1.947l5.856 5.853L22 20.056zm-7.207.925a6.188 6.188 0 1 1 6.187-6.185 6.194 6.194 0 0 1-6.188 6.188z" />
+    </symbol>
+    <symbol id="i-share" viewBox="0 0 21.21 22">
+      <path
+        d="M6.694 3.601L10.073.222a.75.75 0 0 1 1.064 0l3.379 3.379a.751.751 0 1 1-1.062 1.062l-2.089-2.089.058 8.726a.75.75 0 0 1-.747.743.747.747 0 0 1-.751-.729l-.059-8.759-2.109 2.109a.751.751 0 0 1-1.062-1.062zm13.732 9.685l-7.935 7.933a2.675 2.675 0 0 1-3.776 0L.78 13.284a2.675 2.675 0 0 1 0-3.776l3.18-3.18a.75.75 0 0 1 1.062 0l.012.013a.724.724 0 0 1 .209.516.749.749 0 0 1-.221.533l-3.181 3.18a1.167 1.167 0 0 0 0 1.65l7.937 7.937a1.166 1.166 0 0 0 1.649 0l7.938-7.938a1.166 1.166 0 0 0 0-1.649l-3.18-3.18a.752.752 0 0 1 1.063-1.065l3.182 3.182a2.675 2.675 0 0 1-.004 3.779z" />
+    </symbol>
+    <symbol id="i-view-grid" viewBox="0 0 17.53 17.53">
+      <path
+        d="M.276 0h7.146A.276.276 0 0 1 7.7.276v7.146a.276.276 0 0 1-.276.276H.276A.276.276 0 0 1 0 7.422V.276A.276.276 0 0 1 .276 0zm9.83 0h7.145a.276.276 0 0 1 .276.276v7.146a.276.276 0 0 1-.276.276h-7.145a.276.276 0 0 1-.276-.276V.276A.276.276 0 0 1 10.106 0zM.276 9.83h7.146a.276.276 0 0 1 .276.276v7.145a.276.276 0 0 1-.276.276H.276A.276.276 0 0 1 0 17.252v-7.145a.276.276 0 0 1 .276-.277zm9.83 0h7.145a.276.276 0 0 1 .276.276v7.145a.276.276 0 0 1-.276.276h-7.145a.276.276 0 0 1-.276-.276v-7.145a.276.276 0 0 1 .276-.276zm0 0" />
+    </symbol>
+    <symbol id="i-view-list" viewBox="0 0 17.53 18">
+      <path d="M0 0h17.53v11H0zm0 13h17.53v5H0z" />
+    </symbol>
+    <symbol id="logo-bau" viewBox="0 0 114.09 37.88">
+      <path
+        d="M57.044 0a16.575 16.575 0 0 0-16.575 16.575V37.88h33.15V16.575A16.575 16.575 0 0 0 57.044 0zM33.15 9.47A9.263 9.263 0 0 0 24.108 0H0v37.88h24.108a9.48 9.48 0 0 0 0-18.94 9.263 9.263 0 0 0 9.042-9.47zM108.492 0l-3.66 8.783h-7.319L101.172 0H80.938v21.305a16.575 16.575 0 1 0 33.15 0V0z" />
+    </symbol>
+  </svg>
+  <header>
+    <a href="#" id="logo">
+      <div>
+        <svg>
+          <use href="#logo-bau" />
+        </svg>
+        <div>
+          <button>
+            <svg>
+              <use href="#i-search" />
+            </svg>
+          </button>
+          <button>
+            <figure>
+              <img src="media/users/bruno-lobato.jpg" alt="user">
+            </figure>
+          </button>
+        </div>
+      </div>
+    </a>
+    <div class="diagonal"></div>
+  </header>
+  <main>
+
+    <div class="container">
+    </div>
+
+    <div class="container">
+      <h1>
+        <span>Welcome to BAÚ</span>, from collectors to collectors
+      </h1>
+      <h2>Welcome to BAÚ, from collectors to collectors</h2>
+      <h3>Welcome to BAÚ, from collectors to collectors</h3>
+      <p class="lead">Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my
+        name printed on
+        it?</p>
+      <p>You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world
+        once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly
+        when we turned on each other, but I know that seven of us survived the slide... and only five made it out.</p>
+      <p>Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed
+        on
+        it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical
+        helicopter
+        that shakes when you put quarters in it?</p>
+      <ul>
+        <li>Vestibulum id ligula porta felis euismod semper.</li>
+        <li>Maecenas faucibus mollis interdum.</li>
+        <li>Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</li>
+      </ul>
+    </div>
+
+    <div class="container">
+      <p><a href="#">this is a link</a></p>
+      <button>this is a button</button>
+      <button class="btn">this is a button</button>
+    </div>
+
+    <div class="diagonal"></div>
+  </main>
+</body>
+
+</html>
