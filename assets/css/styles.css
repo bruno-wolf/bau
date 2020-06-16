@@ -4,12 +4,14 @@
  * * variables
  * * body
  * * type
- * * button
+ * * forms
+ * * buttons and links
  * * layout
  * * header
  * * components
  * * 
  * * animations
+ * * utilities
  * * other
  */
 
@@ -36,9 +38,9 @@
 	--f-primary: 'Montserrat', sans-serif;
 	--f-secondary: 'Merriweather', serif;
 	/* spacers */
-	--s-half: 10px;
-	--s-base: 20px;
-	--s-double: 40px;
+	--s-half: 1em;
+	--s-base: 2em;
+	--s-double: 4em;
 }
 
 /*
@@ -70,14 +72,14 @@ h3 {
 	color: var(--c-soft);
 }
 h1 {
-	font-size: 3em;
+	font-size: 3.4em;
 	line-height: 1.3;
 }
 h2 {
-	font-size: 2.6em;
+	font-size: 3em;
 }
 h3 {
-	font-size: 2.2em;
+	font-size: 2.6em;
 }
 p {
 	font-size: 1.6em;
@@ -86,22 +88,38 @@ p {
 	color: var(--c-base);
 	margin-bottom: var(--s-base);
 }
-a {
-	color: var(--c-base);
-	text-decoration: none;
-	border-bottom: 1px solid var(--c-pastel);
-}
-a:hover {
-	border-bottom-color: var(--c-dark);
-}
 ul {
-	margin-top: 1em;
+	margin-top: var(--s-base);
 }
 li {
+	/* counter-reset: list; */
 	font-size: 1.6em;
 	line-height: 1.5;
-	margin-bottom: 1em;
+	margin-bottom: var(--s-half);
+
+	position: relative;
+	margin: 1em;
 }
+
+ul > li {
+	list-style-type: none;
+}
+/* li::before {
+	counter-increment: list;
+	content: counter(list);
+	font-size: 1em;
+	background: var(--c-second);
+	width: 1em;
+	height: 1em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1em;
+	border-radius: 1em;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+} */
 h1 span,
 h2 span,
 h3 span {
@@ -110,9 +128,20 @@ h3 span {
 p.lead {
 	font-size: 2em;
 }
+hr {
+	margin: var(--s-double) 0;
+	border-top: 8px solid var(--c-pastel);
+}
 
 /*
- * button
+ * forms
+ */
+form {
+	width: 100%;
+}
+
+/*
+ * buttons and links
  */
 button {
 	-webkit-appearance: none;
@@ -122,18 +151,68 @@ button {
 	cursor: pointer;
 	text-decoration: none;
 	text-transform: uppercase;
-	padding: .5em 1.5em;
-	margin-bottom: 1em;
+	padding: .7em 1.5em;
+	margin: .2em 0 1em;
 	font-size: 1.4em;
 	line-height: 1;
 	letter-spacing: 1px;
-	border-radius: 1em;
-	transition: all 250ms ease-in-out;
+	border-radius: 2em;
+	color: var(--c-dark);
+	background: var(--c-gray);
+	border: 1px solid var(--c-gray);
+	transition: background 250ms ease-in-out, color 500ms ease-in-out;
+}
+
+button:hover {
+	background: var(--c-dark);
+	color: var(--c-white);
+	margin-top: 0;
+	border-color: var(--c-dark);
+}
+
+a {
+	font-size: 1em;
+	color: var(--c-base);
+	text-decoration: none;
+	border-bottom: 1px solid var(--c-pastel);
+	transition: border 250ms ease-out;
+}
+a:hover {
+	border-bottom-color: var(--c-dark);
 }
 
 .btn {
 	background: var(--c-dark);
 	color: var(--c-white);
+	border: 1px solid var(--c-dark);
+}
+.btn:hover {
+	background: var(--c-second);
+	color: var(--c-dark);
+	border-color: var(--c-second);
+}
+.btn-outline {
+	background: var(--c-white);
+	color: var(--c-dark);
+	border: 1px solid var(--c-dark);
+}
+.btn-soft {
+	background: var(--c-soft);
+	color: var(--c-white);
+	border: 1px solid var(--c-soft);
+}
+.btn-soft-outline {
+	background: var(--c-white);
+	color: var(--c-dark);
+	border: 1px solid var(--c-pastel);
+}
+.btn-soft-outline:hover {
+	background: var(--c-soft);
+	border-color: var(--c-soft);
+}
+.link {
+	font-size: 1.4em;
+	text-transform: uppercase;
 }
 
 /*
@@ -141,7 +220,6 @@ button {
  */
 main {
 	width: 100%;
-	margin-top: 100px;
 }
 
 .container {
@@ -194,4 +272,11 @@ header #logo svg {
 	height: 28px;
 	fill: var(--c-dark);
 	margin: var(--s-half);
+}
+
+/*
+ * utilities
+ */
+.hide {
+	display: none;
 }
