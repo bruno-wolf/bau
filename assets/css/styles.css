@@ -6,12 +6,13 @@
  * * type
  * * forms
  * * buttons and links
+ * * svg
  * * layout
  * * header
  * * footer
  * * components
  * * intro
- * * 
+ * * login
  * * 
  * * animations
  * * utilities
@@ -41,9 +42,18 @@
 	--f-primary: 'Montserrat', sans-serif;
 	--f-secondary: 'Merriweather', serif;
 	/* spacers */
-	--s-half: 1em;
-	--s-base: 2em;
-	--s-double: 4em;
+	--s-half: 5px;
+	--s-base: 10px;
+	--s-double: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+	:root {
+		/* spacers */
+		--s-half: 10px;
+		--s-base: 20px;
+		--s-double: 40px;
+	}
 }
 
 /*
@@ -68,15 +78,14 @@ h1,
 h2,
 h3 {
 	font-family: var(--f-secondary);
-	margin-bottom: var(--s-half);
+	margin-bottom: var(--s-base);
 	line-height: 1.3;
 	font-weight: 900;
 	letter-spacing: .5px;
-	color: var(--c-soft);
+	color: var(--c-base);
 }
 h1 {
 	font-size: 3.4em;
-	line-height: 1.3;
 }
 h2 {
 	font-size: 3em;
@@ -101,32 +110,16 @@ li {
 	margin-bottom: var(--s-half);
 
 	position: relative;
-	margin: 1em;
+	margin: var(--s-base);
 }
 
 ul > li {
 	list-style-type: none;
 }
-/* li::before {
-	counter-increment: list;
-	content: counter(list);
-	font-size: 1em;
-	background: var(--c-second);
-	width: 1em;
-	height: 1em;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 1em;
-	border-radius: 1em;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-} */
 h1 span,
 h2 span,
 h3 span {
-	color: var(--c-dark);
+	border-bottom: 4px solid var(--c-second);
 }
 
 p.lead {
@@ -135,6 +128,11 @@ p.lead {
 hr {
 	margin: var(--s-double) 0;
 	border-top: 8px solid var(--c-pastel);
+}
+@media only screen and (min-width: 768px) {
+	h1 {
+		font-size: 5em;
+	}
 }
 
 /*
@@ -151,7 +149,7 @@ form select,
 form textarea {
 	width: 100%;
 	display: block;
-	margin-bottom: 1rem;
+	margin-top: var(--s-half);
 	padding: .5rem 1rem;
 	background: var(--c-white);
 	border-radius: .5em;
@@ -193,11 +191,15 @@ form select {
 	background: transparent;
 }
 
+.password-container button:hover {
+	background: transparent;
+}
+
 .password-container button svg {
 	stroke: none;
 	fill: var(--c-pastel);
-	width: 2em;
-	height: 1.6em;
+	width: 1.2em;
+	height: 1em;
 }
 
 form input[type=file]::-webkit-file-upload-button {
@@ -220,7 +222,7 @@ form input[type=file]::before {
 	align-items: center;
 	justify-content: center;
 	height: 100%;
-	margin: 0 auto 1em;
+	margin: 0 auto var(--s-base);
 	-webkit-user-select: none;
 	transition: background 250ms ease-out, color 250ms ease-out;
 }
@@ -231,6 +233,12 @@ form input[type=file]:active::before {
 	color: var(--c-white);
 }
 
+label {
+	font-size: 1.4em;
+	letter-spacing: .1em;
+	margin-bottom: var(--s-base);
+	display: block;
+}
 /*
  * buttons and links
  */
@@ -243,10 +251,10 @@ button {
 	text-decoration: none;
 	text-transform: uppercase;
 	padding: .7em 1.5em;
-	margin-bottom: 1em;
-	font-size: 1.4em;
+	margin-bottom: var(--s-base);
+	font-size: 1.6em;
 	line-height: 1;
-	letter-spacing: 1px;
+	letter-spacing: .1em;
 
 	color: var(--c-dark);
 	background: var(--c-gray);
@@ -284,18 +292,8 @@ button.selected {
 	color: var(--c-dark);
 	border: 1px solid var(--c-pastel);
 }
-.btn:hover,
-.btn.selected,
-.btn.dark:hover,
-.btn.dark.selected,
-.btn.outline:hover,
-.btn.outline.selected,
-.btn.soft:hover,
-.btn.soft.selected,
-.btn.soft-outline:hover,
-.btn.soft-outline.selected {
+.btn.second {
 	background: var(--c-second);
-	color: var(--c-dark);
 	border-color: var(--c-second);
 }
 
@@ -354,26 +352,75 @@ button.selected {
 	height: 6em;
 }
 
-a {
-	font-size: 1em;
-	color: var(--c-base);
-	text-decoration: none;
-	border-bottom: 1px solid var(--c-pastel);
-	transition: border 250ms ease-out;
+.btn.lg,
+.btn.dark.lg,
+.btn.outline.lg,
+.btn.soft.lg,
+.btn.soft-outline.lg {
+	font-size: 1.6em;
 }
+
 a:hover {
 	border-bottom-color: var(--c-dark);
 }
-.link {
+a.link {
 	font-size: 1.4em;
 	text-transform: uppercase;
+	letter-spacing: .1em;
+	color: var(--c-dark);
+	text-decoration: none;
+	border-bottom: 2px solid var(--c-second);
+	transition: border 250ms ease-in-out;
+}
+a.link:hover {
+	border-bottom-color: var(--c-dark);
 }
 a.btn {
 	font-size: 1.4em;
 	display: inline-block;
-	padding: .7em 2em;
+	padding: 1em 2em;
 	text-transform: uppercase;
 	letter-spacing: 1px;
+	cursor: pointer;
+	text-decoration: none;
+	transition: background 250ms ease-in-out, color 500ms ease-in-out, border 500ms ease-in-out;
+}
+a.btn.lg {
+	font-size: 2em;
+}
+
+@media only screen and (min-width: 768px) {
+	.btn:hover,
+	.btn.selected,
+	.btn.dark:hover,
+	.btn.dark.selected,
+	.btn.outline:hover,
+	.btn.outline.selected,
+	.btn.soft:hover,
+	.btn.soft.selected,
+	.btn.soft-outline:hover,
+	.btn.soft-outline.selected {
+		background: var(--c-second);
+		color: var(--c-dark);
+		border-color: var(--c-second);
+	}
+
+	.btn.second:hover,
+	.btn.second.selected {
+		background: var(--c-dark);
+		color: var(--c-white);
+		border-color: var(--c-dark);
+	}
+}
+
+/*
+ * svg
+ */
+svg.icon {
+	width: 10em;
+	height: 10em;
+	fill: var(--c-soft);
+	margin-bottom: var(--s-double);
 }
 
 /*
@@ -381,7 +428,6 @@ a.btn {
  */
 main {
 	width: 100%;
-	margin-top: 4em;
 }
 
 main .container {
@@ -389,6 +435,11 @@ main .container {
 	margin: auto;
 }
 
+@media only screen and (min-width: 768px) {
+	main {
+		margin: 0;
+	}
+}
 /*
  * footer
  */
@@ -400,9 +451,9 @@ footer {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background: yellow;
 	width: 100%;
-	z-index: -1;
+	height: 6em;
+	overflow: hidden;
 }
 footer svg {
 	fill: var(--c-gray);
@@ -411,7 +462,7 @@ footer svg {
 }
 footer .diagonal {
 	transform: rotate(180deg);
-	bottom: 0;
+	bottom: -1.6em;
 	right: 0;
 	position: absolute;
 }
@@ -420,17 +471,17 @@ footer > div:first-of-type {
 	bottom: 0;
 	left: 0;
 	display: flex;
-	align-items: center;
+	align-items: flex-end;
 	justify-content: space-between;
 	width: 100%;
 	z-index: 1;
-	padding: 1em;
+	padding: 1em 1em 0;
 }
 
 footer p {
 	font-size: 1.2em;
 	letter-spacing: .5px;
-	margin: 0;
+	margin-bottom: var(--s-half);
 	color: var(--c-base);
 }
 /*
@@ -465,7 +516,6 @@ header {
 	top: 0;
 	left: 0;
 	width: 100%;
-	max-width: 420px;
 	z-index: 1;
 }
 
@@ -475,7 +525,7 @@ header .container {
 	left: 0;
 	z-index: 1;
 	width: 100%;
-	padding: 0 1em;
+	padding: 1em 1em 0;
 	background: var(--c-white);
 }
 
@@ -536,12 +586,12 @@ header nav a {
 	text-transform: uppercase;
 	font-weight: 800;
 	letter-spacing: 1px;
-	color: var(--c-soft);
+	color: var(--c-base);
 	padding: 1rem 0;
 	transition: color 500ms ease-in-out, margin 300ms ease-in-out;
 }
 header nav a:last-of-type {
-	margin-bottom: 3em;
+	margin-bottom: var(--s-double);
 }
 
 header nav a:hover,
@@ -589,25 +639,38 @@ header nav a.selected {
 	fill: var(--c-white);
 }
 
+@media only screen and (min-width: 768px) {
+	header .container {
+		background: transparent;
+	}
+	header .diagonal {
+		margin: 0;
+	}
+}
+
 /*
  * intro
  */
+#intro {
+	width: 100%;
+	height: 100vh;
+}
 #intro #animation {
-	background: var(--c-pastel);
-	height: 50vh;
+	height: 45%;
 	display: flex;
-	padding: 0 4em;
+	padding: 8em 8em 0 8em;
 	position: relative;
 	overflow: hidden;
+	background: var(--c-second);
 }
 
-#intro svg {
+#intro #animation svg {
 	fill: var(--c-white);
 	width: 25%;
 	transition: fill 250ms ease-in-out, width 250ms ease-in-out;
 }
 
-#intro svg.selected {
+#intro #animation svg.selected {
 	fill: var(--c-dark);
 	width: 30em;
 }
@@ -615,32 +678,82 @@ header nav a.selected {
 #intro .diagonal {
 	position: absolute;
 	bottom: -2em;
-	left: 0;
 	right: 0;
 	transform: rotate(180deg);
 }
 
+#intro.second #animation {
+	display: none;
+}
+
 #intro #action {
 	width: 100%;
-	height: 40vh;
+	height: 55%;
+	padding: 4em;
 	display: flex;
 	flex-flow: column;
 	align-items: center;
 	justify-content: center;
 }
 
-#intro #action > * {
-	margin: .2rem;
-	line-height: 1;
-}
-
 #intro #action p {
 	font-size: 1.4em;
-	margin-bottom: 2em;
+	margin-bottom: var(--s-base);
 }
 
 #intro #action .btn {
-	margin-bottom: 1em;
+	text-align: center;
+}
+#intro #action .row {
+	margin: 2em 0;
+}
+#intro #action .row > * {
+	margin: 1em;
+}
+
+#intro.second #action {
+	height: 100vh;
+}
+
+@media only screen and (min-width: 768px) {
+	#intro {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	#intro #animation {
+		width: 60%;
+		height: 100%;
+		padding: 12em;
+	}
+
+	#intro #animation .diagonal {
+		display: none;
+	}
+
+	#intro.second #animation {
+		display: flex;
+	}
+	#intro #action {
+		width: 40%;
+		height: 100%;
+		padding: 0 10em;
+		align-items: flex-start;
+	}
+
+	#intro #action p {
+		font-size: 2.2em;
+		line-height: 1.4em;
+	}
+}
+
+/*
+ * login
+ */
+#login {
+	width: 90%;
+	max-width: 40em;
+	margin: auto;
 }
 
 /*
@@ -652,4 +765,17 @@ header nav a.selected {
  */
 .hide {
 	display: none;
+}
+
+/*
+ * other
+ */
+::selection {
+	background: var(--c-second);
+	color: var(--c-dark);
+}
+
+::-moz-selection {
+	background: var(--c-second);
+	color: var(--c-dark);
 }

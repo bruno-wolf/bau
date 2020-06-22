@@ -90,11 +90,12 @@
       <path
         d="M57.044 0a16.575 16.575 0 0 0-16.575 16.575V37.88h33.15V16.575A16.575 16.575 0 0 0 57.044 0zM33.15 9.47A9.263 9.263 0 0 0 24.108 0H0v37.88h24.108a9.48 9.48 0 0 0 0-18.94 9.263 9.263 0 0 0 9.042-9.47zM108.492 0l-3.66 8.783h-7.319L101.172 0H80.938v21.305a16.575 16.575 0 1 0 33.15 0V0z" />
     </symbol>
+
   </svg>
 
   <header>
     <div class="container">
-      <a href="#" id="logo">
+      <a href="/." id="logo" aria-label="hoempage">
         <svg>
           <use href="#logo-bau" />
         </svg>
@@ -105,7 +106,7 @@
             <use href="#i-search" />
           </svg>
         </button> -->
-        <button class="btn-profile" id="menu">
+        <button class="btn-profile hide" id="menu" aria-label="toggle navigation">
           <figure>
             <img src="media/users/bruno-lobato.jpg" alt="user">
           </figure>
@@ -124,129 +125,59 @@
     </nav>
   </header>
   <main>
-    <section id="search">
-      <form action="">
-        <input type="text" name="" id="search-input">
+    <section id="intro" class="second">
+      <div id="animation">
+        <div class="diagonal"></div>
         <svg>
-          <use href="#i-search" />
+          <use href="#f-batman" />
         </svg>
-      </form>
-    </section>
-
-    <!-- type -->
-    <div class="container">
-      <h1>
-        <span>Welcome to BAÚ</span>, from collectors to collectors
-      </h1>
-      <h2>Welcome to BAÚ, from collectors to collectors</h2>
-      <h3>Welcome to BAÚ, from collectors to collectors</h3>
-      <p class="lead">Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my
-        name printed on
-        it?</p>
-      <p>You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world
-        once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly
-        when we turned on each other, but I know that seven of us survived the slide... and only five made it out.</p>
-      <p>Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed
-        on
-        it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical
-        helicopter
-        that shakes when you put quarters in it?</p>
-      <ul>
-        <li>Vestibulum id ligula porta felis euismod semper.</li>
-        <li>Maecenas faucibus mollis interdum.</li>
-        <li>Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</li>
-      </ul>
-
-      <ol>
-        <li>Vestibulum id ligula porta felis euismod semper.</li>
-        <li>Maecenas faucibus mollis interdum.</li>
-        <li>Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</li>
-      </ol>
-    </div>
-
-    <!-- buttons and links -->
-    <div class="container">
-      <hr />
-      <p><a href="#">this is a link</a> inside a paragraph</p>
-      <a href="#" class="link">this is an isolated link</a>
-      <br>
-      <br>
-      <button>this is a simple button</button>
-      <button class="btn">this is a .btn button</button>
-      <button class="btn dark">this is a .btn button</button>
-      <button class="btn outline">this is a .btn-outline button</button>
-      <button class="btn soft">this is a .btn-soft button</button>
-      <button class="btn soft-outline">this is a .btn-soft-outline button</button>
-      <button class="btn second">this is a .btn-second button</button>
-
-      <br>
-      <button class="btn-icon">
+        <svg class="selected">
+          <use href="#f-pop" />
+        </svg>
         <svg>
-          <use href="#i-comments" />
+          <use href="#f-gundam" />
         </svg>
-      </button>
-      <button class="btn-icon">
         <svg>
-          <use href="#i-bookmark" />
+          <use href="#f-lego" />
         </svg>
-      </button>
-      <button class="btn-icon">
-        <svg>
-          <use href="#i-like" />
-        </svg>
-      </button>
-      <button class="btn-icon">
-        <svg>
-          <use href="#i-share" />
-        </svg>
-      </button>
-      <br>
-      <button class="btn-profile">
-        <figure>
-          <img src="media/users/mark-hamill.jpg" alt="user">
-        </figure>
-      </button>
-
-      <button class="btn-profile lg">
-        <figure>
-          <img src="media/users/ian-mcKellen.jpg" alt="user">
-        </figure>
-      </button>
-    </div>
-
-    <!-- forms -->
-    <div class="container">
-      <hr>
-      <form action="#">
-        <input type="text" name="" id="text" placeholder="this is a text input">
-        <input type="number" name="" id="number">
-        <input type="email" name="" id="email">
-        <input type="text" name="" id="name" placeholder="username" autocomplete="username">
-        <div class="password-container">
-          <button class="btn-icon">
-            <svg>
-              <use href="#i-eye" />
-            </svg>
-          </button>
-          <input type="password" name="" id="password" autocomplete="current-password">
+      </div>
+      <div id="action">
+        <form action="#" method="POST" class="">
+          <h1>Welcome Friend to the Endless World of Collectors</h1>
+          <p>We are in beta version, and, for now to became a BAÚ collector you need a join code. If you have a friend
+            that is a member, ask him for a code. We are giving our collectors some new codes in regular basis </p>
+          <label for="login-password">
+            password
+            <div class="password-container">
+              <button type="button" class="btn-icon" aria-label="show password">
+                <svg>
+                  <use href="#i-eye" />
+                </svg>
+              </button>
+              <input type="password" name="password" id="login-password" autocomplete="current-password">
+            </div>
+          </label>
+          <button class="btn dark" aria-label="add new password">add</button>
+          <br>
+        </form>
+        <div class="message hide">
+          <h2><span>Done!</span><br> Your Password is Saved</h2>
+          <p>Welcome back fellow collector. It's time to discover new collectibles</p>
+          <br>
+          <a class="btn dark" href="#">feed</a>
         </div>
-        <input type="file" name="" id="file">
-        <select name="" id="select">
-          <option value="">choose one</option>
-          <optgroup label="group">
-            <option value="">opt 1</option>
-            <option value="">opt 2</option>
-            <option value="">opt 3</option>
-          </optgroup>
-        </select>
-        <textarea name="" id="textarea" placeholder="this is a text area"></textarea>
-      </form>
-    </div>
-
-    <!-- diagonal -->
-    <div class="diagonal hide"></div>
+      </div>
+    </section>
   </main>
-  <script src="assets/js/scripts.js"></script>
+  <footer>
+    <div>
+      <p>©2020 all rights</p>
+      <img src="assets/img/logo-bau-footer.svg" alt="">
+    </div>
+    <div class="diagonal"></div>
+  </footer>
+  <script src="assets/js/all.js"></script>
+  <script src="assets/js/intro.js"></script>
 </body>
 
 </html>

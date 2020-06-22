@@ -112,7 +112,7 @@
 
   <header>
     <div class="container">
-      <a href="/." id="logo" aria-label="bau brand">
+      <a href="/." id="logo" aria-label="hoempage">
         <svg>
           <use href="#logo-bau" />
         </svg>
@@ -123,7 +123,7 @@
             <use href="#i-search" />
           </svg>
         </button> -->
-        <button class="btn-profile" id="menu">
+        <button class="btn-profile hide" id="menu" aria-label="toggle navigation">
           <figure>
             <img src="media/users/bruno-lobato.jpg" alt="user">
           </figure>
@@ -142,14 +142,6 @@
     </nav>
   </header>
   <main>
-    <section id="search" class="hide">
-      <form action="">
-        <input type="text" name="" id="search-input">
-        <svg>
-          <use href="#i-search" />
-        </svg>
-      </form>
-    </section>
 
     <section id="intro">
       <div id="animation">
@@ -168,10 +160,13 @@
         </svg>
       </div>
       <div id="action">
-        <h1>FOR <span>COLLECTORS</span></h1>
+        <h1>For <span>Collectors</span></h1>
         <p>Form your shelves to the community</p>
-        <a class="btn dark">start collecting</a>
-        <a href="#" class="link">login</a>
+        <a class="btn dark lg">start collecting</a>
+        <div class="row">
+          <a href="#" class="link">login</a>
+          <a href="#" class="link">about</a>
+        </div>
       </div>
     </section>
   </main>
@@ -182,7 +177,8 @@
     </div>
     <div class="diagonal"></div>
   </footer>
-  <script src="assets/js/scripts.js"></script>
+  <script src="assets/js/all.js"></script>
+  <script src="assets/js/intro.js"></script>
 </body>
 
 </html>
