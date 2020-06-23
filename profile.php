@@ -56,6 +56,30 @@
       </div>
     </section>
     <section id="feed">
+      <div id="item-nav">
+        <form action="#">
+          <div class="select-ct">
+            <select name="collections" id="collections" aria-label="select a collection">
+              <option value="">All Collections</option>
+              <option value="">Star Wars</option>
+              <option value="">Lord Of The Rings</option>
+              <option value="">Bishoujo</option>
+            </select>
+          </div>
+        </form>
+        <div>
+          <button class="btn-icon" aria-label="grid view">
+            <svg>
+              <use href="#i-view-grid" />
+            </svg>
+          </button>
+          <button class="btn-icon selected" aria-label="card view">
+            <svg>
+              <use href="#i-view-list" />
+            </svg>
+          </button>
+        </div>
+      </div>
       <?php require('includes/card.php'); ?>
     </section>
     <?php include('includes/search.php'); ?>
