@@ -30,9 +30,14 @@
           </div>
         </div>
       </div>
-      <nav class="sho">
+      <nav>
         <div class="drawer">
-          <div class="comment-handler">
+          <button class="btn-icon close" aria-label="close drawer">
+            <svg>
+              <use href="#i-cross" />
+            </svg>
+          </button>
+          <div class="comment-handler hide">
             <div class="comment-list">
               <div class="comment-item">
                 <div>

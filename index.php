@@ -1,7 +1,7 @@
   <?php
   require('includes/header.php');
   ?>
-  <main>
+  <main class="wide">
     <section id="intro">
       <div id="animation">
         <div class="diagonal"></div>
