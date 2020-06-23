@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BAÚ | components</title>
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
@@ -18,12 +19,7 @@
         </svg>
       </a>
       <span>
-        <!-- <button class="btn-icon">
-        <svg>
-          <use href="#i-search" />
-        </svg>
-      </button> -->
-        <button class="btn-profile hide" id="menu" aria-label="toggle navigation">
+        <button class="btn-profile " id="menu" aria-label="toggle navigation">
           <figure>
             <img src="media/users/bruno-lobato.jpg" alt="user">
           </figure>
@@ -32,7 +28,7 @@
     </div>
     <div class="diagonal"></div>
     <nav>
-      <a href="#">Feed</a>
+      <a href="#" class="selected">Feed</a>
       <a href="#">You</a>
       <a href="#">Collections</a>
       <a href="#">New Collectible</a>

@@ -23,7 +23,9 @@
 /*
  * import
  */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&family=Montserrat&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@900&family=Montserrat&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway:wght@800&display=swap');
+
 @import 'reset.css';
 
 /*
@@ -42,7 +44,8 @@
 	--c-black: #000;
 	/* fonts */
 	--f-primary: 'Montserrat', sans-serif;
-	--f-secondary: 'Merriweather', serif;
+	/* --f-secondary: 'Merriweather', serif; */
+	--f-secondary: 'Raleway', sans-serif;
 	/* spacers */
 	--s-half: 5px;
 	--s-base: 10px;
@@ -303,7 +306,7 @@ button.selected {
 }
 
 .btn-icon {
-	padding: .5em 1em;
+	padding: .5em;
 	background: var(--c-white);
 	border: none;
 }
@@ -311,14 +314,16 @@ button.selected {
 	background: var(--c-white);
 }
 .btn-icon svg {
-	width: 1.6em;
-	height: 2.3em;
-	fill: var(--c-white);
-	stroke: var(--c-dark);
-	stroke-width: 1.4;
+	width: 2em;
+	height: 2em;
+	fill: var(--c-pastel);
+	/* stroke: var(--c-base);
+	stroke-width: 1; */
 	transition: fill 250ms ease-out;
 }
-.btn-icon:hover svg,
+.btn-icon:hover svg {
+	fill: var(--c-soft);
+}
 .btn-icon.selected svg {
 	fill: var(--c-dark);
 }
@@ -497,9 +502,11 @@ footer p {
 .card {
 	width: 100%;
 	max-width: 40em;
+	border: 1px solid var(--c-pastel);
+	margin-bottom: var(--s-double);
 }
 .card-header {
-	padding: 1em 1em 0;
+	padding: .5em 1em;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -514,14 +521,18 @@ footer p {
 	align-items: center;
 	text-align: right;
 }
-.card-header > div:last-of-type span {
+.card-header span {
 	display: block;
+}
+
+.card-header > div:last-of-type span {
+	padding-right: .5em;
 }
 
 .card-header .data {
 	font-size: 1.3em;
 	letter-spacing: .5px;
-	line-height: 1;
+	line-height: 1.2;
 }
 .card-header .name {
 	font-weight: 800;
@@ -529,6 +540,32 @@ footer p {
 .card-header > div:last-of-type .btn-profile {
 	margin: 0;
 }
+.card-body {
+	background: center / 20em no-repeat url('../img/f-batman.svg') var(--c-soft);
+}
+.card-body .carousel-cell {
+	width: 100%;
+}
+.card-body .flickity-page-dots {
+	bottom: var(--s-base);
+}
+.card-body .flickity-page-dots .dot {
+	width: 12px;
+	height: 12px;
+	background: transparent;
+	background: var(--c-white);
+	opacity: .4;
+}
+.card-body .flickity-page-dots .dot.is-selected {
+	background: var(--c-white);
+	opacity: 1;
+}
+
+.card-body .flickity-enabled:focus .flickity-viewport {
+	outline: thin dotted;
+	outline: 5px auto var(--c-second);
+}
+
 .card-footer {
 	padding: 1em;
 	display: flex;
@@ -539,7 +576,28 @@ footer p {
 .card-footer span {
 	font-size: 1.3em;
 }
+@media only screen and (min-width: 768px) {
+	.card {
+		box-shadow: 0 0 20px var(--c-pastel);
+		transition: box-shadow 500ms ease-in-out;
+	}
+	.card:hover {
+		box-shadow: 0 0 20px var(--c-soft);
+	}
+}
 
+/* btn-group */
+.btn-group button {
+	margin: 0;
+}
+.btn-group button.selected {
+	background: var(--c-white);
+}
+
+.btn-group .fav svg {
+	/* width: 1em;
+	height: 1em; */
+}
 /* diagonal effect */
 .diagonal {
 	width: 100%;
@@ -559,7 +617,7 @@ footer p {
 	position: absolute;
 	top: -105px;
 	left: 50%;
-	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0 15px 0 var(--c-pastel);
 }
 
 /* alerts */
@@ -623,11 +681,13 @@ header .container span {
 header #logo {
 	width: 10em;
 	height: 3.6em;
+	border: none;
 }
 header #logo svg {
 	width: 10em;
 	height: 3.6em;
-	fill: var(--c-dark);
+	fill: var(--c-soft);
+	transition: fill 1000ms ease-in-out;
 }
 
 header button {
@@ -671,7 +731,8 @@ header nav a {
 	letter-spacing: 1px;
 	color: var(--c-base);
 	padding: 1rem 0;
-	transition: color 500ms ease-in-out, margin 300ms ease-in-out;
+	position: relative;
+	transition: margin 300ms ease-in-out;
 }
 header nav a:last-of-type {
 	margin-bottom: var(--s-double);
@@ -680,15 +741,32 @@ header nav a:last-of-type {
 header nav a:hover,
 header nav a.selected {
 	margin-left: .5em;
-	color: var(--c-dark);
+}
+header nav a::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: -10em;
+	transform: translateY(-50%);
+	width: 0;
+	height: 0;
+	border-top: .5em solid transparent;
+	border-bottom: .5em solid transparent;
+	border-left: .5em solid var(--c-second);
+	transition: left 250ms ease-out;
+}
+
+header nav a:hover::before,
+header nav a.selected::before {
+	left: -1em;
 }
 
 #search {
 	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	padding: 1em 1em 2em 1em;
+	top: 1.4rem;
+	right: 4rem;
+	width: 60%;
+	max-width: 30em;
 	margin: 0;
 	z-index: 2;
 }
@@ -699,38 +777,83 @@ header nav a.selected {
 
 #search form input {
 	width: 14%;
+	max-width: 3em;
 	font-size: 1.4em;
 	margin: 0 0 0 auto;
 	border-radius: 3rem;
+	border: none;
 	z-index: 1;
+	padding: .25rem 1rem;
 	background: transparent;
+	color: var(--c-white);
 }
 
 #search form input:focus {
-	width: 60%;
+	width: 100%;
+	max-width: 20em;
+	color: var(--c-base);
+	background: var(--c-white);
+	border-color: var(--c-white);
+	padding: 1rem 1rem;
+	font-size: 1.6em;
+	box-shadow: 0 0 50px 0px var(--c-soft);
+}
+
+#search form button {
+	position: absolute;
+	top: 50%;
+	right: 1em;
+	width: 2em;
+	height: 2em;
+	transform: translateY(-50%);
+	margin: 0;
+	padding: 0;
+	z-index: -1;
+	border: none;
+	border-radius: 5em;
 	background: var(--c-white);
 }
 
 #search form svg {
 	width: 2em;
 	height: 2em;
-	position: absolute;
-	top: 50%;
-	right: 1em;
-	transform: translateY(-50%);
 	fill: var(--c-soft);
 	z-index: -1;
+	transition: fill 250ms ease-in-out;
 }
-#search form input:focus svg {
+#search form input:focus + button {
 	z-index: 1;
 }
-
+#search form button:hover svg,
+#search form button:focus svg {
+	fill: var(--c-dark);
+}
 @media only screen and (min-width: 768px) {
+	header {
+		max-width: 30em;
+	}
 	header .container {
 		background: transparent;
 	}
 	header .diagonal {
 		margin: 0;
+	}
+	header #logo:hover svg {
+		fill: var(--c-base);
+	}
+	header #menu {
+		display: none;
+	}
+	header nav {
+		top: 0;
+		background: transparent;
+	}
+	header nav a {
+		font-size: 1.4em;
+		padding: .5rem 0;
+	}
+	#search {
+		right: 1rem;
 	}
 }
 
@@ -860,6 +983,10 @@ header nav a.selected {
 #feed .card:first-of-type {
 	margin-top: 10em;
 }
+
+#feed .card:last-of-type {
+	margin-bottom: 10em;
+}
 /*
  * animations
  */
@@ -870,7 +997,7 @@ header nav a.selected {
 .hide {
 	display: none;
 }
-.no-drag {
+.no-d {
 	-webkit-user-select: none;
 	-webkit-user-drag: none;
 	-webkit-app-region: no-drag;
