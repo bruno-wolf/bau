@@ -1,5 +1,5 @@
 // card carousel
-var cards = document.querySelectorAll('.main-carousel');
+var cards = document.querySelectorAll('.carousel');
 cards.forEach((card) => {
 	new Flickity(card, {
 		cellAlign: 'left',
