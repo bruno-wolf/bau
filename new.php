@@ -24,7 +24,7 @@
       'link' => ''
     ),
   );
-  $item_name = '75159 death star';
+  $item_name = '75159 Death Star';
   ?>
   <main>
     <section id="item-new" class="item-new hide">
@@ -65,7 +65,7 @@
       </div>
     </section>
 
-    <section id="item-detail" class="item-new">
+    <section id="item-detail" class="item-new hide">
       <?php if (isset($item_name) && !empty($item_name)) : ?>
         <h1>Add The Remaining Details <?= 'of Your <span>' . $item_name; ?></span></h1>
       <?php else : ?>
@@ -110,10 +110,22 @@
         </div>
       </form>
     </section>
+
+    <section id="item-photos" class="item-new">
+      <h1>Time to Add the Best Images of <span><?= $item_name; ?></span></h1>
+      <form action="#">
+        <div class="dropzone" id="photo-add"></div>
+        <div class="right">
+          <button class="btn dark">next</button>
+        </div>
+      </form>
+    </section>
   </main>
 
   <?php require('includes/footer.php'); ?>
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  <script src="assets/js/vendor/enyo/dropzone.js"></script>
+  <script src="assets/js/item-new.js"></script>
   <script src="assets/js/all.js"></script>
   </body>
 
