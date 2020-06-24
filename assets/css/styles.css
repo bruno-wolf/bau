@@ -291,7 +291,6 @@ button {
 	font-size: 1.4em;
 	line-height: 1;
 	letter-spacing: .1em;
-
 	color: var(--c-dark);
 	background: var(--c-gray);
 	border: 1px solid var(--c-gray);
@@ -424,6 +423,9 @@ a.btn {
 a.btn.lg {
 	font-size: 2em;
 }
+.btn.sm {
+	padding: .5em 1em;
+}
 
 @media only screen and (min-width: 768px) {
 	.btn:hover,
@@ -479,6 +481,7 @@ main > section:first-of-type {
 	main {
 		margin: 0;
 		width: calc(100% - 30em);
+		min-height: 100%;
 		position: absolute;
 		right: 0;
 		top: 0;
@@ -1241,12 +1244,13 @@ header nav a.selected::before {
 	width: 90%;
 	margin: var(--s-double) auto;
 }
+
 .desc {
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
-	padding: 1em 1em 1em 0;
-	border-bottom: 1px solid var(--c-pastel);
+	padding: 2em 0;
+	/* border-bottom: 1px solid var(--c-pastel); */
 }
 .desc .btn-profile figure {
 	width: 4em;
@@ -1264,9 +1268,15 @@ header nav a.selected::before {
 /*
  * item
  */
+
+#item .carousel {
+	max-height: unset;
+	height: calc(100vh - 6em);
+	margin-top: 6em;
+}
 #item nav {
 	position: fixed;
-	bottom: 2em;
+	bottom: 6em;
 	left: 50%;
 	width: 90%;
 	max-width: 36em;
@@ -1308,7 +1318,7 @@ header nav a.selected::before {
 	top: 0;
 	left: 0;
 	background: var(--c-white);
-	padding: 2em;
+	padding: 4em 4em 1em 4em;
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-end;
@@ -1324,10 +1334,23 @@ header nav a.selected::before {
 	height: 1.6em;
 	fill: var(--c-soft);
 }
-#item nav .comment.handler {
+#item nav .handler {
 	width: 100%;
 	height: 100%;
 	position: relative;
+}
+#item nav .handler.fav,
+#item nav .handler.like {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+#item nav .handler svg {
+	fill: var(--c-second);
 }
 #item nav .comment-list {
 	position: absolute;
@@ -1343,7 +1366,7 @@ header nav a.selected::before {
 	height: 12em;
 	background: var(--c-white);
 	position: fixed;
-	bottom: 4em;
+	bottom: 3em;
 	left: 0;
 	box-shadow: 0 -10px 50px 0px rgba(0, 0, 0, 0.1);
 }
@@ -1410,20 +1433,9 @@ header nav a.selected::before {
 }
 
 @media only screen and (min-width: 768px) {
-	#item {
-		display: flex;
-		justify-content: space-between;
-		align-items: flex-start;
-		max-width: 90%;
-		height: 75vh;
-		max-height: 75vh;
-		overflow: hidden;
-		margin: 10em auto 10em 0;
-		/* box-shadow: 0 0 20px var(--c-pastel); */
-	}
 	#item .carousel {
-		flex: 2;
-		max-height: 100%;
+		margin: 0;
+		height: 100%;
 	}
 	#item .info {
 		flex: 1;
@@ -1435,7 +1447,6 @@ header nav a.selected::before {
 	#item nav {
 		left: unset;
 		right: 2em;
-		bottom: 6em;
 		transform: translateX(0);
 	}
 

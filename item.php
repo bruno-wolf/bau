@@ -64,6 +64,25 @@
                 <span class="date">20:00 13 jun 20</span>
               </div>
             </div>
+            <div class="center">
+              <a href="#" class="btn sm soft-outline">profile</a>
+              <a href="#" class="btn sm soft-outline">follow</a>
+            </div>
+          </div>
+          <!-- fav -->
+          <div class="fav handler hide" data-handler="fav">
+            <svg>
+              <use href="#i-bookmark" />
+            </svg>
+            <h1>Added To Favourites</h1>
+            <a href="#" class="link">show favourites</a>
+          </div>
+          <!-- like -->
+          <div class="like handler hide" data-handler="like">
+            <svg>
+              <use href="#i-like" />
+            </svg>
+            <h1>Perfect like</h1>
           </div>
           <!-- comments -->
           <div class="comment handler hide" data-handler="comment">
@@ -106,7 +125,7 @@
           </div>
           <!-- share -->
           <div class="share handler hide" data-handler="share">
-            <h2>Show This Precious To The World</h2>
+            <h2>Show This Precious To Your World</h2>
             <p>Just copy to your computer's clipboard</p>
             <input type="text" id="url" value="https://bau.com/od8sadmw" aria-label="collectible url">
             <button class="btn" id="copy">copy link</button>
