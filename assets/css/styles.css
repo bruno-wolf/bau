@@ -19,6 +19,7 @@
  * * item
  * * item-new
  * * check-new
+ * * settings
  * * 
  * * animations
  * * utilities
@@ -58,7 +59,35 @@
 	--s-double: 20px;
 }
 
-@media only screen and (min-width: 768px) {
+@media (prefers-color-scheme: light) {
+	:root {
+		--c-gray: #f4f7f6;
+		--c-pastel: #cbdbd7;
+		--c-soft: #91aab4;
+		--c-base: #3e606f;
+		--c-dark: #193441;
+		--c-second: #ffcc33;
+		--c-danger: #ff6262;
+		--c-white: #fff;
+		--c-black: #000;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--c-gray: #193441;
+		--c-pastel: #3e606f;
+		--c-soft: #3e606f;
+		--c-base: #cbdbd7;
+		--c-dark: #cbdbd7;
+		--c-second: #ffcc33;
+		--c-danger: #ff6262;
+		--c-white: #10111a;
+		--c-black: #fff;
+	}
+}
+
+@media only screen and (min-width: 1264px) {
 	:root {
 		/* spacers */
 		--s-half: 10px;
@@ -70,6 +99,9 @@
 /*
  * body
  */
+html {
+	background: var(--c-white);
+}
 body {
 	font-family: var(--f-primary);
 	font-size: 10px;
@@ -140,7 +172,7 @@ hr {
 	margin: var(--s-double) 0;
 	border-top: 8px solid var(--c-pastel);
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1264px) {
 	h1 {
 		font-size: 4em;
 	}
@@ -427,7 +459,7 @@ a.btn.lg {
 	padding: .5em 1em;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1264px) {
 	.btn:hover,
 	.btn.selected,
 	.btn.dark:hover,
@@ -477,7 +509,7 @@ main > section:first-of-type {
 	margin: 6em auto;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1264px) {
 	main {
 		margin: 0;
 		width: calc(100% - 30em);
@@ -537,6 +569,11 @@ footer p {
 	margin-bottom: var(--s-half);
 	color: var(--c-base);
 }
+@media (prefers-color-scheme: dark) {
+	footer img {
+		filter: opacity(0.2);
+	}
+}
 /*
  * components
  */
@@ -546,6 +583,7 @@ footer p {
 	width: 100%;
 	border: 1px solid var(--c-pastel);
 	margin-bottom: var(--s-double);
+	background: var(--c-white);
 }
 .card-header {
 	padding: .5em 1em;
@@ -592,7 +630,7 @@ footer p {
 .card-footer span {
 	font-size: 1.3em;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1264px) {
 	.card {
 		box-shadow: 0 0 20px var(--c-pastel);
 		transition: box-shadow 500ms ease-in-out;
@@ -607,6 +645,10 @@ footer p {
 	max-height: 60vh;
 	overflow: hidden;
 	background: center / 20em no-repeat url('../img/f-batman.svg') var(--c-soft);
+}
+.carousel img {
+	max-width: unset;
+	width: 100%;
 }
 .carousel-cell {
 	width: 100%;
@@ -640,7 +682,7 @@ footer p {
 .diagonal {
 	width: 100%;
 	max-width: 420px;
-	height: 100px;
+	height: 6em;
 	overflow: hidden;
 	position: relative;
 }
@@ -695,6 +737,7 @@ header {
 	top: 0;
 	left: 0;
 	width: 100%;
+	height: 8em;
 	z-index: 3;
 }
 
@@ -748,7 +791,7 @@ header .diagonal {
 
 header nav {
 	width: 100%;
-	max-width: 36em;
+
 	height: 100vh;
 	background: var(--c-white);
 	padding: 10em 3em 3em 3em;
@@ -803,7 +846,7 @@ header nav a.selected::before {
 	position: fixed;
 	top: 1.4rem;
 	right: 4rem;
-	width: 60%;
+	width: 80%;
 	max-width: 30em;
 	margin: 0;
 	z-index: 3;
@@ -866,7 +909,7 @@ header nav a.selected::before {
 #search form button:focus svg {
 	fill: var(--c-dark);
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1264px) {
 	header {
 		max-width: 30em;
 	}
@@ -885,6 +928,7 @@ header nav a.selected::before {
 	header nav {
 		top: 0;
 		background: transparent;
+		max-width: 36em;
 	}
 	header nav a {
 		font-size: 1.4em;
@@ -1070,7 +1114,7 @@ header nav a.selected::before {
 	height: calc(100% - 14vh);
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1264px) {
 	#intro {
 		display: flex;
 		align-items: center;
@@ -1127,7 +1171,7 @@ header nav a.selected::before {
 #feed .card:last-of-type {
 	margin-bottom: 10em;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1264px) {
 	#feed {
 		max-width: 50em;
 	}
@@ -1227,7 +1271,7 @@ header nav a.selected::before {
 	font-size: 1.4em;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1264px) {
 	#bio {
 		max-width: 40em;
 		position: fixed;
@@ -1240,10 +1284,6 @@ header nav a.selected::before {
 /*
  * item
  */
-.info {
-	width: 90%;
-	margin: var(--s-double) auto;
-}
 
 .desc {
 	display: flex;
@@ -1274,6 +1314,7 @@ header nav a.selected::before {
 	height: calc(100vh - 6em);
 	margin-top: 6em;
 }
+
 #item nav {
 	position: fixed;
 	bottom: 6em;
@@ -1311,6 +1352,14 @@ header nav a.selected::before {
 	z-index: 1;
 }
 
+#item nav .btn-icon {
+	position: relative;
+}
+#item nav .btn-icon[data-trigger="like"] {
+	border-left: 1px solid var(--c-soft);
+	padding-left: 2em;
+}
+
 #item nav .drawer {
 	position: absolute;
 	width: 100%;
@@ -1318,13 +1367,14 @@ header nav a.selected::before {
 	top: 0;
 	left: 0;
 	background: var(--c-white);
-	padding: 4em 4em 1em 4em;
+	padding: 8em 4em 1em 4em;
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-end;
+	overflow: scroll;
 }
 #item nav .drawer .close {
-	position: absolute;
+	position: fixed;
 	top: 1em;
 	right: 1em;
 	z-index: 1;
@@ -1351,6 +1401,10 @@ header nav a.selected::before {
 }
 #item nav .handler svg {
 	fill: var(--c-second);
+}
+
+#item nav .handler h1 {
+	font-size: 3em;
 }
 #item nav .comment-list {
 	position: absolute;
@@ -1432,10 +1486,10 @@ header nav a.selected::before {
 	text-align: center;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1264px) {
 	#item .carousel {
 		margin: 0;
-		height: 100%;
+		height: 100vh;
 	}
 	#item .info {
 		flex: 1;
@@ -1457,6 +1511,10 @@ header nav a.selected::before {
 	}
 	#item nav .drawer {
 		height: calc(80vh - 6em);
+		padding: 4em 4em 1em 4em;
+	}
+	#item nav .drawer .close {
+		top: 1em;
 	}
 }
 
@@ -1500,6 +1558,44 @@ header nav a.selected::before {
 	margin: 0;
 }
 
+/*
+ * settings
+ */
+#settings {
+	display: flex;
+	flex-flow: column-reverse;
+	align-items: center;
+	justify-content: center;
+}
+
+#settings .form {
+	width: 90%;
+	margin: auto;
+}
+
+#settings .nav {
+	margin: 4em 0;
+	width: 90%;
+}
+#settings .nav nav a {
+	display: block;
+	font-size: 1.4em;
+	text-decoration: none;
+	color: var(--c-base);
+}
+
+#settings .nav nav {
+	display: none;
+}
+#settings .nav nav.show {
+	display: block;
+}
+@media only screen and (min-width: 1264px) {
+	#settings {
+		flex-flow: row;
+		align-items: flex-start;
+	}
+}
 /*
  * animations
  */

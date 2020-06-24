@@ -33,11 +33,7 @@ new Flickity(carrousel, settings);
 let nav = document.querySelector('#item nav');
 let btnClose = nav.querySelector('.drawer .close');
 let btnsNav = Array.from(nav.querySelectorAll('.btn-group .btn-icon'));
-let btnComment = nav.querySelector('.btn-icon.comment');
-let btnShare = nav.querySelector('.btn-icon.share');
 let handlers = Array.from(nav.querySelectorAll('.handler'));
-let commentHandler = nav.querySelector('.comment.handler');
-let shareHandler = nav.querySelector('.share.handler');
 
 function close(show) {
 	btnsNav.forEach((element) => {
