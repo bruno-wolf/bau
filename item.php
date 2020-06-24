@@ -128,22 +128,29 @@
             <h2>Show This Precious To Your World</h2>
             <p>Just copy to your computer's clipboard</p>
             <input type="text" id="url" value="https://bau.com/od8sadmw" aria-label="collectible url">
-            <button class="btn" id="copy">copy link</button>
+            <button class="btn second" id="copy">copy link</button>
           </div>
         </div>
         <div class="btn-group">
+          <!-- info -->
           <button class="btn-icon" data-trigger="info" aria-label="about this collectible">
             <svg>
               <use href="#i-info" />
             </svg>
           </button>
-          <button class="btn-icon <?php if ($item['fav'] == 1) {
-                                    echo 'selected';
-                                  } ?>" data-trigger="fav" aria-label="add to favourites">
+          <!-- comment -->
+          <button class="btn-icon" data-trigger="comment" aria-label="check comments">
             <svg>
-              <use href="#i-bookmark" />
+              <use href="#i-comments" />
             </svg>
           </button>
+          <!-- share -->
+          <button class="btn-icon" data-trigger="share" aria-label="share this collectible">
+            <svg>
+              <use href="#i-share" />
+            </svg>
+          </button>
+          <!-- like -->
           <button class="btn-icon <?php if ($item['like'] == 1) {
                                     echo 'selected';
                                   } ?>" data-trigger="like" aria-label="like this collectible">
@@ -151,16 +158,16 @@
               <use href="#i-like" />
             </svg>
           </button>
-          <button class="btn-icon" data-trigger="comment" aria-label="check comments">
+          <!-- fav -->
+          <button class="btn-icon <?php if ($item['fav'] == 1) {
+                                    echo 'selected';
+                                  } ?>" data-trigger="fav" aria-label="add to favourites">
             <svg>
-              <use href="#i-comments" />
+              <use href="#i-bookmark" />
             </svg>
           </button>
-          <button class="btn-icon" data-trigger="share" aria-label="share this collectible">
-            <svg>
-              <use href="#i-share" />
-            </svg>
-          </button>
+
+
         </div>
       </nav>
     </section>

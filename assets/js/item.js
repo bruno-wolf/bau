@@ -67,6 +67,12 @@ btnsNav.forEach((element) => {
 			});
 			nav.classList.add('show');
 		}
+
+		if (this.dataset.trigger === 'like' || this.dataset.trigger === 'fav') {
+			setTimeout(() => {
+				close('all');
+			}, 2000);
+		}
 	});
 });
 
