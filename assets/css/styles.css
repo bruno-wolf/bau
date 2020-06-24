@@ -18,6 +18,7 @@
  * * profile
  * * item
  * * item-new
+ * * check-new
  * * 
  * * animations
  * * utilities
@@ -151,12 +152,12 @@ hr {
 form {
 	width: 100%;
 }
-form input[type=text],
-form input[type=number],
-form input[type=email],
-form input[type=password],
-form select,
-form textarea {
+input[type=text],
+input[type=number],
+input[type=email],
+input[type=password],
+select,
+textarea {
 	width: 100%;
 	display: block;
 	padding: .5rem 1rem;
@@ -1268,10 +1269,10 @@ header nav a.selected::before {
 	bottom: 2em;
 	left: 50%;
 	width: 90%;
-	max-width: 40em;
+	max-width: 36em;
 	height: 6em;
 	background: var(--c-white);
-	z-index: 2;
+	z-index: 4;
 	border-radius: 3em;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 	overflow: hidden;
@@ -1284,7 +1285,6 @@ header nav a.selected::before {
 	bottom: 0;
 	width: 100%;
 	border-radius: inherit;
-	z-index: 3;
 }
 
 #item nav .btn-group {
@@ -1315,15 +1315,16 @@ header nav a.selected::before {
 }
 #item nav .drawer .close {
 	position: absolute;
-	top: 0;
-	right: 0;
+	top: 1em;
+	right: 1em;
+	z-index: 1;
 }
 #item nav .drawer .close svg {
 	width: 1.6em;
 	height: 1.6em;
 	fill: var(--c-soft);
 }
-#item nav .comment-handler {
+#item nav .comment.handler {
 	width: 100%;
 	height: 100%;
 	position: relative;
@@ -1361,12 +1362,17 @@ header nav a.selected::before {
 	margin-left: var(--s-half);
 }
 
+#item nav .comment-item p {
+	font-size: 1.4em;
+}
+
 #item nav .comment-item .date {
 	font-size: 1.3em;
 	text-transform: uppercase;
+	color: var(--c-soft);
 }
 
-#item nav .comment-handler form {
+#item nav .comment.handler form {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -1375,18 +1381,32 @@ header nav a.selected::before {
 	bottom: 0;
 	left: 0;
 }
-#item nav .comment-handler input {
+#item nav .comment.handler input {
 	border-radius: 0;
 	border: none;
 	border-bottom: 1px solid var(--c-soft);
 }
-#item nav .comment-handler .btn-icon {
+#item nav .comment.handler .btn-icon {
 	margin: 0;
 }
-#item nav .comment-handler .btn-icon svg {
+#item nav .comment.handler .btn-icon svg {
 	fill: var(--c-base);
 	width: 1.6em;
 	height: 1.6em;
+}
+#item nav .share.handler {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+#item nav .share.handler #url {
+	text-transform: lowercase;
+	text-align: center;
 }
 
 @media only screen and (min-width: 768px) {
@@ -1415,6 +1435,7 @@ header nav a.selected::before {
 	#item nav {
 		left: unset;
 		right: 2em;
+		bottom: 6em;
 		transform: translateX(0);
 	}
 
@@ -1439,6 +1460,35 @@ header nav a.selected::before {
 .item-new h1 {
 	margin-bottom: var(--s-double);
 }
+
+/*
+ * check-new
+ */
+#check-new {
+	background: var(--c-dark);
+	padding: 4em;
+	margin-bottom: 0;
+}
+#check-new h1 {
+	color: var(--c-white);
+	font-size: 2.4em;
+}
+#check-new p {
+	color: var(--c-gray);
+	font-size: 1.4em;
+}
+#check-new > div {
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: var(--s-double);
+}
+
+#check-new > div button:last-of-type {
+	margin: 0;
+}
+
 /*
  * animations
  */
@@ -1447,7 +1497,7 @@ header nav a.selected::before {
  * utilities
  */
 .hide {
-	display: none;
+	display: none !important;
 }
 .center {
 	text-align: center;
