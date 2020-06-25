@@ -30,29 +30,24 @@
     <section id="settings">
       <div class="form">
         <form action="" method="POST">
-          <label for="name">name</label>
-          <input type="text" name="name" id="name" value="">
-          <label for="email">email</label>
-          <input type="email" name="email" id="name" value="">
-          <label for="location">location</label>
-          <input type="text" name="location" id="location" value="">
-          <label for="nickname">nickname</label>
-          <input type="text" name="nickname" id="nickname" value="">
-          <div class="flex">
-            <div class="btn-profile lg">
-              <figure>
-                <img src="media/users/ian-mcKellen.jpg" alt="user">
-              </figure>
-            </div>
-            <span>
-              <label for="profile">profile picture</label>
-              <input type="file" name="profile" id="profile">
-            </span>
+          <label for="actual-password">current password</label>
+          <div class="password-container">
+            <button class="btn-icon" aria-label="show password">
+              <svg>
+                <use href="#i-eye" />
+              </svg>
+            </button>
+            <input type="password" name="actual-password" id="actual-password" autocomplete="current-password">
           </div>
-          <label for="quote">quote</label>
-          <textarea name="quote" id="quote" value=""></textarea>
-          <label for="author">author</label>
-          <input type="text" name="author" id="author" value="">
+          <label for="new-password">new password</label>
+          <div class="password-container">
+            <button class="btn-icon" aria-label="show password">
+              <svg>
+                <use href="#i-eye" />
+              </svg>
+            </button>
+            <input type="password" name="new-password" id="new-password" autocomplete="current-password">
+          </div>
           <div class="right">
             <button class="btn dark">Save</button>
           </div>

@@ -34,6 +34,7 @@ let nav = document.querySelector('#item nav');
 let btnClose = nav.querySelector('.drawer .close');
 let btnsNav = Array.from(nav.querySelectorAll('.btn-group .btn-icon'));
 let handlers = Array.from(nav.querySelectorAll('.handler'));
+var timeOut;
 
 function close(show) {
 	btnsNav.forEach((element) => {
@@ -49,6 +50,9 @@ function close(show) {
 
 btnsNav.forEach((element) => {
 	element.addEventListener('click', function() {
+		// clear timeout() if previously clicked on like of fav
+		clearTimeout(timeOut);
+
 		// already open
 		if (this.classList.contains('selected')) {
 			close('all');
@@ -64,8 +68,9 @@ btnsNav.forEach((element) => {
 			nav.classList.add('show');
 		}
 
+		// automatic close if liked or add to fav
 		if (this.dataset.trigger === 'like' || this.dataset.trigger === 'fav') {
-			setTimeout(() => {
+			timeOut = setTimeout(() => {
 				close('all');
 			}, 2000);
 		}

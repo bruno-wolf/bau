@@ -80,7 +80,7 @@
 		--c-soft: #3e606f;
 		--c-base: #cbdbd7;
 		--c-dark: #cbdbd7;
-		--c-second: #ffcc33;
+		--c-second: #6f5401;
 		--c-danger: #ff6262;
 		--c-white: #10111a;
 		--c-black: #fff;
@@ -212,6 +212,7 @@ form input[type=password]:focus,
 textarea:focus,
 select:focus {
 	border-color: var(--c-dark);
+	padding: 1.6rem;
 }
 
 form input::placeholder,
@@ -266,8 +267,8 @@ form .select-ct::before {
 .password-container button svg {
 	stroke: none;
 	fill: var(--c-pastel);
-	width: 1.2em;
-	height: 1em;
+	width: 2em;
+	height: 2em;
 }
 
 form input[type=file]::-webkit-file-upload-button {
@@ -1577,23 +1578,48 @@ header nav a.selected::before {
 	margin: 4em 0;
 	width: 90%;
 }
+
+#settings .nav .btn-icon svg {
+	width: 3em;
+	height: 3em;
+	transform: rotate(45deg);
+	transition: transform 500ms ease-in-out;
+}
+#settings .nav .btn-icon.open svg {
+	transform: rotate(360deg);
+}
+#settings .nav nav {
+	height: 0;
+	opacity: 0;
+	z-index: -1;
+	transition: opacity 300ms ease-in-out;
+}
+#settings .nav nav.show {
+	height: unset;
+	opacity: 1;
+	z-index: 0;
+}
 #settings .nav nav a {
 	display: block;
-	font-size: 1.4em;
+	font-size: 1.6em;
 	text-decoration: none;
+	color: var(--c-soft);
+	padding: .2em 0;
+	transition: font-size 300ms ease-in-out, color 300ms ease-in-out;
+}
+#settings .nav nav a:hover,
+#settings .nav nav a.selected {
+	font-size: 3em;
 	color: var(--c-base);
 }
 
-#settings .nav nav {
-	display: none;
-}
-#settings .nav nav.show {
-	display: block;
-}
 @media only screen and (min-width: 1264px) {
 	#settings {
 		flex-flow: row;
 		align-items: flex-start;
+	}
+	#settings .nav {
+		margin: 0 4em;
 	}
 }
 /*
@@ -1611,6 +1637,11 @@ header nav a.selected::before {
 }
 .right {
 	text-align: right;
+}
+.flex {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 .no-d {
 	-webkit-user-select: none;
